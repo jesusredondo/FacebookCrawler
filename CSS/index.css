@@ -1,0 +1,40 @@
+*{ 
+ font-size: 16px;
+}
+
+body, html{
+	background-color: lightgreen;
+	height:100%;
+
+}
+
+#header-div{
+	text-align: center;
+    color: blue;
+    background-color: white;
+    border: 3px solid black;
+    margin-top: 0;
+}
+
+.content{
+
+}
+
+.p-importante{
+    color: red;
+}
+
+#emilio{
+    border: 3px solid black;
+    height: 200px;
+    margin-left:10%;
+}
+
+#input-curiosear{
+    width: 300px;
+}
+
+button{
+    min-width: 300px;
+    text-align: center;
+}

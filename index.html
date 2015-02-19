@@ -1,0 +1,107 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+	    <title>Facebook Crawler</title>
+	    <link rel="shortcut icon" href="Icons/Index_icon.png" />
+		<link rel="stylesheet" type="text/css" href="CSS/index.css" />
+		<link rel="stylesheet" type="text/css" href="CSS/tabs.css" />
+	    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"> </script>
+	    
+
+
+	</head>
+	<body>
+		<div id ="header-div" >
+			<h1>FACEBOOK CRAWLER</h1>
+		</div>
+
+
+
+		<div class="content">
+			<p class="p-importante">NOTA: Recuerda que para que esto funcione debes estar logueado en facebook y con el idioma configurado en inglés!</p>
+			<p>Copia el identificador de tu "amigo". Recuerda que el identificador se obtiene a partir de su página principal de facebook, tal y como se muestra en la imagen de ejemplo:</p>
+		    <img id="emilio" src="img/emilio-butragueno.png">
+		    <p>Pégalo aquí y pulsa "Curiosear:"</p>
+		    <input id="input-curiosear" type="text" placeholder="ej: emilio.butragueno.77">
+		    <button id="boton-curiosear">Curiosear</button>
+
+		    <div id="mostrador" style="display: none;">
+		    	<h2>Información correcta!</h2>
+		    	<p>¿Qué información deseas cotillear?
+		    	<ul>
+					<li><button id="boton-1">Sus Fotos etiquetadas</button></li>
+					<li><button id="boton-2">Fotos en las que sale</button></li>
+					<li><button id="boton-3">Fotos subidas</button></li>
+					<li><button id="boton-4">Fotos que le gustaron</button></li>
+					<li><button id="boton-5">Otras fotos</button></li>
+					<li><button id="boton-6">Sus comentarios en fotos</button></li>
+					<li><button id="boton-7">Las páginas que le gustaron</button></li>
+					<li><button id="boton-8">Los grupos en los que participa</button></li>
+				</ul>  
+
+
+		    </div>
+
+		</div>
+	</body>
+
+	<script>
+		var id_curioseo;
+		$( document ).ready(function() {
+
+			$("#boton-curiosear").click(function(){
+
+				$.ajax({
+					url: "https://graph.facebook.com/"+$("#input-curiosear").val(),
+					dataType: 'text',
+				}).done(function(data) {
+					var respuesta = jQuery.parseJSON(data)
+					id_curioseo = respuesta.id;
+					alert(respuesta.name)
+					$("#mostrador").show();
+				});
+
+
+			});//buton curiosear
+
+
+			$("#boton-1").click(function(){
+				window.open("https://www.facebook.com/search/"+id_curioseo+"/photos-tagged");
+			});
+
+			$("#boton-2").click(function(){
+				window.open("https://www.facebook.com/search/"+id_curioseo+"/photos-of");
+			});
+
+			$("#boton-3").click(function(){
+				window.open("https://www.facebook.com/search/"+id_curioseo+"/photos-by");
+			});
+
+			$("#boton-4").click(function(){
+				window.open("https://www.facebook.com/search/"+id_curioseo+"/photos-liked");
+			});
+
+			$("#boton-5").click(function(){
+				window.open("https://www.facebook.com/search/"+id_curioseo+"/photos-of/intersect");
+			});
+
+			$("#boton-6").click(function(){
+				window.open("https://www.facebook.com/search/"+id_curioseo+"/photos-commented");
+			});
+
+			$("#boton-7").click(function(){
+				window.open("https://www.facebook.com/search/"+id_curioseo+"/pages-liked");
+			});
+
+			$("#boton-8").click(function(){
+				window.open("https://www.facebook.com/search/"+id_curioseo+"/groups");
+			});
+
+
+		});
+		//$onlo
+		//$(https://graph.facebook.com/
+	</script
+
+</html>
